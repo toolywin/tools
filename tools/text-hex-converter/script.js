@@ -35,9 +35,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
 	    {
 	    	var param = new URLSearchParams(window.location.search);
 
-	    	if( param.has('input') )
+	    	if( param.has('input') && param.get('input')!='' )
 	    		highlight_element = '#code';
-	    	else if( param.has('code') )
+	    	else if( param.has('code') && param.get('code')!='' )
 	    		highlight_element = '#input';
 	    }
 	    if( highlight_element!='' )

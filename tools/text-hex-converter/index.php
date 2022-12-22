@@ -2,7 +2,7 @@
 if( !defined('PSZAPP_INIT') ) exit;
 
 // change tool settings
-if( $_GET['act']=='setting' )
+if( isset($_GET['act']) && $_GET['act']=='setting' )
 {
 	include_once('configurations.php');
 	exit;
@@ -94,8 +94,8 @@ if( $input!='' )
 	$page_description = __('encoded') . " [$input] " . __('to') . " HEX. " . $tool_settings['Description'];
 
 	// save log into db, do not save defult values
-	if( !in_array($input, [__('your plain text you would like to encode'), 'URL', 'https://raw.githubusercontent.com/PREScriptZ/gomymobiBSB/master/README.md']) )
-		_log_tool($PSZ_LOG_TEXT_HEX_ENCODE, $user_session!=NULL?$user_session['id']:0, $tool_id, $input);
+	if( !in_array($input, [__('your plain text you would like to encode'), 'URL', 'https://github.com/PREScriptZ/tooly.win/raw/main/README.md']) )
+		$log_task = $PSZ_LOG_TEXT_HEX_ENCODE;
 
 }
 else if( $code!='' ) // decode
@@ -108,15 +108,44 @@ else if( $code!='' ) // decode
 	$input = @hex2bin( str_replace_array([
 			'0x' => '',
 			' ' => '',
-		], $code) );
+		], $input) );
 
 	// invalid hex code, could not decode
 	if( $input===FALSE )
 		$invalid_hexcode = true;
 
 	// save log into db, do not save defult values
-	else if( !in_array($input, [__('your encoded data'), 'URL', 'https://raw.githubusercontent.com/PREScriptZ/gomymobiBSB/master/README.HEX']) )
-		_log_tool($PSZ_LOG_TEXT_HEX_DECODE, $user_session!=NULL?$user_session['id']:0, $tool_id, $code);
+	else if( !in_array($input, [__('your encoded data'), 'URL', 'https://github.com/PREScriptZ/tooly.win/raw/main/tools/text-hex-converter/README.HEX.md']) )
+		$log_task = $PSZ_LOG_TEXT_HEX_DECODE;
+}
+
+if( isset($log_task) && $log_task )
+{
+	$input_type = 'message';
+
+	// if input is url
+	if( is_url($input) )
+	{
+		$input_type = 'link';
+		// check img extension only, do not check header
+		if( is_image($input, false) )
+			$input_type = 'image';
+		else if( is_video($input) )
+			$input_type = 'video';
+		else if( is_audio($input) )
+			$input_type = 'audio';
+		else if( is_text_file($input) )
+			$input_type = 'file';
+	}
+	else if( is_email($input) )
+		$input_type = 'email';
+	else if( strlen($input)>750 )
+		$input_type = 'text';
+
+	_log_tool($log_task, $user_session!=NULL?$user_session['id']:0, $tool_id, $input_type, $log_task==$PSZ_LOG_TEXT_HEX_ENCODE?$input:$code);
+
+		/*_log_tool($PSZ_LOG_TEXT_HEX_ENCODE, $user_session!=NULL?$user_session['id']:0, $tool_id, $input, $input_type);
+		_log_tool($PSZ_LOG_TEXT_HEX_DECODE, $user_session!=NULL?$user_session['id']:0, $tool_id, $code, $input_type);*/
 }
 
 // show preview if input is a link
@@ -190,7 +219,7 @@ foreach ($share as $key => $value)
 		'SOCIAL' => $key,
 		'URL'    => str_replace_array([
 						'{URL}'   => urlencode($url_share),
-						'{IMG}'   => urlencode($tool_settings['Image']),
+						'{IMG}'   => $page_sharing_img,
 						'{TITLE}' => urlencode($tool_settings['Name'] . "\n\n" . $tool_settings['Description']),
 						], $value['url']),
 		'TITLE' => __('Share on') . ' ' . $key,
@@ -251,7 +280,7 @@ if( NULL != ($rows=$db->_fetchAll($PSZ_TABLE_TOOL_USAGE_LOG, 'id, input_type, in
 			'TYPE'       => $type[$r['log_type']],
 			'ITEM'       => __('one') . ' ' . $item[$r['input_type']],
 			'INPUT'      => $r['input'],
-			'INPUT_PARA' => $input_type[$r['log_type']] . urlencode($r['input']),
+			'INPUT_PARA' => $input_type[$r['log_type']] . urlencode(trim($r['input'])),
 			'TIME'       => time2str($r['time']),
 			'TIME_ALT'   => date('d ', $r['time']) . __(date('M', $r['time'])) . date(', Y h:i:s', $r['time']),
 		]);

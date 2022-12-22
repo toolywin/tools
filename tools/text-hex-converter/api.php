@@ -37,7 +37,7 @@ include_once("$PSZ_DIR_TOOL/$slug/settings.php");
 * predefined functions
 * */
 // $api=true; increase usage count only, do not log content
-// function _log_tool($log_type, $user_id = 1, $tool_id, $input, $api = false)
+// function _log_tool($log_type, $user_id = 1, $tool_id, $input_type, $input, $api = false)
 
 if( $input!='' )
 {
