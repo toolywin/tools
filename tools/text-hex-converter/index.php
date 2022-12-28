@@ -128,6 +128,7 @@ if( isset($log_task) && $log_task )
 	{
 		$input_type = 'link';
 		// check img extension only, do not check header
+		// set true to check header of image url, but consumes more time to return results
 		if( is_image($input, false) )
 			$input_type = 'image';
 		else if( is_video($input) )
