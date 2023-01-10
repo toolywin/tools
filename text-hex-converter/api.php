@@ -69,8 +69,8 @@ if( $input!='' )
 	$return_api['result'] = $code;
 
 	// log counts only, do not log content, do not save defult values
-	if( !in_array($input, [__('your plain text you would like to encode'), 'URL', 'https://raw.githubusercontent.com/PREScriptZ/gomymobiBSB/master/README.md']) )
-		_log_tool($PSZ_LOG_TEXT_HEX_ENCODE, 0, $tool_id, $input, true);
+	if( !in_array($input, [__('your plain text you would like to encode'), 'URL', 'https://raw.githubusercontent.com/toolywin/tools/main/README.md']) )
+		_log_tool($PSZ_LOG_TEXT_HEX_ENCODE, 0, $tool_id, '', $input, true);
 }
 else if( $code!='' ) // decode
 {
@@ -83,8 +83,8 @@ else if( $code!='' ) // decode
 	$return_api['result'] = $input;
 
 	// log counts only, do not log content, do not save defult values
-	if( !in_array($input, [__('your encoded data'), 'URL', 'https://raw.githubusercontent.com/PREScriptZ/gomymobiBSB/master/README.HEX']) )
-		_log_tool($PSZ_LOG_TEXT_HEX_DECODE, 0, $tool_id, $code, true);
+	if( !in_array($input, [__('your encoded data'), 'URL', 'https://raw.githubusercontent.com/toolywin/tools/main/text-hex-converter/README.HEX.md']) )
+		_log_tool($PSZ_LOG_TEXT_HEX_DECODE, 0, $tool_id, '', $code, true);
 }
 
 // return result

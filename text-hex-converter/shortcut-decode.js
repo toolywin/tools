@@ -4,6 +4,9 @@ javascript:
 	(window.getSelection ? window.getSelection() : 
 		(document.getSelection ? document.getSelection() : document.selection.createRange().text));
 
+	// trim spaces
+	text = text.trim();
+
 	// if no selected text, ask user to enter the text
 	var p = !text||text=='' ? prompt('_lang{Please enter the decoded text to convert into normal string}') : text;
 

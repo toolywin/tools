@@ -94,7 +94,7 @@ if( $input!='' )
 	$page_description = __('encoded') . " [$input] " . __('to') . " HEX. " . $tool_settings['Description'];
 
 	// save log into db, do not save defult values
-	if( !in_array($input, [__('your plain text you would like to encode'), 'URL', 'https://github.com/PREScriptZ/tooly.win/raw/main/README.md']) )
+	if( !in_array($input, [__('your plain text you would like to encode'), 'URL', 'https://raw.githubusercontent.com/toolywin/tools/main/README.md']) )
 		$log_task = $PSZ_LOG_TEXT_HEX_ENCODE;
 
 }
@@ -115,7 +115,7 @@ else if( $code!='' ) // decode
 		$invalid_hexcode = true;
 
 	// save log into db, do not save defult values
-	else if( !in_array($input, [__('your encoded data'), 'URL', 'https://github.com/PREScriptZ/tooly.win/raw/main/tools/text-hex-converter/README.HEX.md']) )
+	else if( !in_array($input, [__('your encoded data'), 'URL', 'https://raw.githubusercontent.com/toolywin/tools/main/text-hex-converter/README.HEX.md']) )
 		$log_task = $PSZ_LOG_TEXT_HEX_DECODE;
 }
 
@@ -211,21 +211,6 @@ $api_example_encoded = bin2hex(__('your encoded data'));
 $api_example_encoded = trim(chunk_split($api_example_encoded, 2, ' '));
 $api_example_encoded = explode(' ', $api_example_encoded);
 $api_example_encoded = implode(' ', $api_example_encoded);
-
-// list share links
-foreach ($share as $key => $value)
-{
-	$pTemplate->assign_block_vars('share', array(
-		'ICON'   => $value['icon'],
-		'SOCIAL' => $key,
-		'URL'    => str_replace_array([
-						'{URL}'   => urlencode($url_share),
-						'{IMG}'   => $page_sharing_img,
-						'{TITLE}' => urlencode($tool_settings['Name'] . "\n\n" . $tool_settings['Description']),
-						], $value['url']),
-		'TITLE' => __('Share on') . ' ' . $key,
-	));
-}
 
 // show usage logs
 $t_settings = unserialize($db_tool_config['settings']);

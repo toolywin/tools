@@ -41,7 +41,7 @@ $tool_settings = [
 		'Name'    	=> 'PreScriptZ.com',
 		'Contact' 	=> 'https://www.prescriptz.com/',
 		'Source'	=> [
-			'GitHub'    => 'http://github.com/PREScriptZ/tooly.win/blob/main/tools/text-hex-converter/',
+			'GitHub'    => 'https://github.com/toolywin/tools/tree/main/text-hex-converter',
 		],
 		'Donate'  	=> [
 			'Paypal'   => 'https://www.paypal.me/PREScriptZ',

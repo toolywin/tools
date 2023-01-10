@@ -18,12 +18,12 @@
 					<button type="button" class="btn_mark_fav btn btn-sm btn-icon btn-color-warning btn-active-light-warning hover-scale" data-bs-toggle="tooltip" data-bs-placement="top" title="_lang{Add to favarite}" data-tool-id="[=TOOL_ID=]">
 						<i class="fa_class_switcher [=FA_CLASS=]-heart fs-2 text-white"></i>
 					</button>
-					<button type="button" class="btn btn-sm btn-icon btn-color-warning btn-active-light-warning hover-scale" data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="bottom-end" data-bs-toggle="tooltip" data-bs-placement="top" title="_lang{Share this tool}">
+					<!-- <button type="button" class="btn btn-sm btn-icon btn-color-warning btn-active-light-warning hover-scale" data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="bottom-end" data-bs-toggle="tooltip" data-bs-placement="top" title="_lang{Share this tool}">
 						<i class="fa_class_switcher [=FA_CLASS=]-share-nodes fs-2 text-white"></i>
 					</button>
 					<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px py-3" data-kt-menu="true">
 						<div class="menu-item px-3 my-1 h-200px overflow-auto">
-							<a href="javascript:;" class="menu-link px-3 text-warning btn_copy_text" data-clipboard-text="[=URL_SHARE=]">
+							<a href="javascript:;" class="menu-link px-3 text-warning -btn_copy_text" data-clipboard-text="[=URL_SHARE=]">
 								<i class="fa_class_switcher [=FA_CLASS=]-link fs-1 text-warning me-3"></i> _lang{Copy Link}
 							</a>
 							<a href="mailto:?&subject=[=TOOL_NAME=]&body=[=URL_SHARE=]" class="menu-link px-3 text-warning" target="_blank" rel="nofollow">
@@ -35,7 +35,7 @@
 							</a>
 							<!-- END_LOOP share -->
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<div class="card-body">
@@ -69,7 +69,7 @@
 								<!--end::Wrapper-->
 								<!--begin::Wrapper-->
 								<div>
-									<button type="button" data-target="input" data-url-sample="https://github.com/PREScriptZ/tooly.win/raw/main/README.md" class="btn_load_url btn btn-sm btn-icon btn-active-color-warning hover-scale bg-transparent" data-bs-toggle="tooltip" data-bs-placement="top" title="_lang{Import from the external URL}">
+									<button type="button" data-target="input" data-url-sample="https://raw.githubusercontent.com/toolywin/tools/main/README.md" class="btn_load_url btn btn-sm btn-icon btn-active-color-warning hover-scale bg-transparent" data-bs-toggle="tooltip" data-bs-placement="top" title="_lang{Import from the external URL}">
 										<i class="fs-1 text-white fa_class_switcher [=FA_CLASS=]-link-horizontal"></i>
 									</button>
 									<button type="button" data-target="input" class="btn_load_file btn btn-sm btn-icon btn-active-color-warning hover-scale bg-transparent" data-bs-toggle="tooltip" data-bs-placement="top" title="_lang{Import from the local file}">
@@ -78,7 +78,7 @@
 									<button type="button" data-target="input" class="btn_download_file btn btn-sm btn-icon btn-active-color-warning hover-scale bg-transparent" data-bs-toggle="tooltip" data-bs-placement="top" title="_lang{Download}">
 										<i class="fs-1 text-white fa_class_switcher [=FA_CLASS=]-save"></i>
 									</button>
-									<button type="button" data-target="input" class="btn_copy btn btn-sm btn-icon btn-active-color-warning hover-scale bg-transparent" data-bs-toggle="tooltip" data-bs-placement="top" title="_lang{Copy to clipboard}">
+									<button type="button" data-target="input" data-clipboard-target="#input" class="btn_copy btn btn-sm btn-icon btn-active-color-warning hover-scale bg-transparent" data-bs-toggle="tooltip" data-bs-placement="top" title="_lang{Copy to clipboard}">
 										<i class="fs-1 text-white fa_class_switcher [=FA_CLASS=]-copy"></i>
 									</button>
 								</div>
@@ -125,13 +125,13 @@
 							<div class="d-flex flex-stack pt-5 -mb-5">
 								<!--begin::Wrapper-->
 								<div>
-									<button type="button" data-target="code" class="btn_copy btn btn-sm btn-icon btn-active-color-warning hover-scale bg-transparent" data-bs-toggle="tooltip" data-bs-placement="top" title="_lang{Copy to clipboard}">
+									<button type="button" data-target="code" data-clipboard-target="#code" class="btn_copy btn btn-sm btn-icon btn-active-color-warning hover-scale bg-transparent" data-bs-toggle="tooltip" data-bs-placement="top" title="_lang{Copy to clipboard}">
 										<i class="fs-1 text-white fa_class_switcher [=FA_CLASS=]-copy"></i>
 									</button>
 									<button type="button" data-target="code" class="btn_download_file btn btn-sm btn-icon btn-active-color-warning hover-scale bg-transparent" data-bs-toggle="tooltip" data-bs-placement="top" title="_lang{Download}">
 										<i class="fs-1 text-white fa_class_switcher [=FA_CLASS=]-inbox-in"></i>
 									</button>
-									<button type="button" data-target="code" data-url-sample="https://github.com/PREScriptZ/tooly.win/raw/main/tools/text-hex-converter/README.HEX.md" class="btn_load_url btn btn-sm btn-icon btn-active-color-warning hover-scale bg-transparent" data-bs-toggle="tooltip" data-bs-placement="top" title="_lang{Import from the external URL}">
+									<button type="button" data-target="code" data-url-sample="https://raw.githubusercontent.com/toolywin/tools/main/text-hex-converter/README.HEX.md" class="btn_load_url btn btn-sm btn-icon btn-active-color-warning hover-scale bg-transparent" data-bs-toggle="tooltip" data-bs-placement="top" title="_lang{Import from the external URL}">
 										<i class="fs-1 text-white fa_class_switcher [=FA_CLASS=]-link-horizontal"></i>
 									</button>
 								</div>
@@ -151,7 +151,7 @@
 										<input class="form-check-input me-3" type="checkbox" name="space" id="space" [=CHECK_SPACE=] value="1" />
 										<!--end::Input-->
 										<!--begin::Label-->
-										<span class="form-check-label d-flex flex-column align-items-start text-white">
+										<span class="form-check-label d-flex flex-column align-items-start text-white" role="button">
 											<span class="fw-bold fs-3 mt-n2 mb-0">_lang{Space between bytes}</span>
 											<span class="-text-muted fs-5">_lang{Puts a space between bytes}</span>
 										</span>
@@ -163,7 +163,7 @@
 										<input class="form-check-input me-3" type="checkbox" name="prepend" id="prepend" [=CHECK_PREPEND=] value="1" />
 										<!--end::Input-->
 										<!--begin::Label-->
-										<span class="form-check-label d-flex flex-column align-items-start text-white">
+										<span class="form-check-label d-flex flex-column align-items-start text-white" role="button">
 											<span class="fw-bold fs-3 mt-n2 mb-0">_lang{Prefix bytes}</span>
 											<span class="-text-muted fs-5">_lang{Prepends bytes with 0x}</span>
 										</span>
@@ -280,7 +280,7 @@
 				<!--end::Heading-->
 				<!--begin::Action-->
 				<div class="mb-xl-10 mb-3">
-					<a href="javascript:var text=''+(window.getSelection?window.getSelection():(document.getSelection?document.getSelection():document.selection.createRange().text));var p=!text||text==''?prompt('_lang{Please enter the text to encode into hexadecimal string}'):text;if(p.length>1950){if(true==confirm('_lang{The tool could not process this input directly, please access the website to re-enter this input to process again}'))window.open('https://[=PSZ_APP_SITE_DOMAIN=]/[=TOOL_SLUG=].html?lang=[=CURRENT_LANGUAGE_CODE=]');void(0);exit}window.open('https://[=PSZ_APP_SITE_DOMAIN=]/[=TOOL_SLUG=].html?lang=[=CURRENT_LANGUAGE_CODE=]&utm_source=shortcut&input='+p);void(0);" 
+					<a href="javascript:var text=''+(window.getSelection?window.getSelection():(document.getSelection?document.getSelection():document.selection.createRange().text));text=text.trim();var p=!text||text==''?prompt('_lang{Please enter the text to encode into hexadecimal string}'):text;if(p.length>1950){if(true==confirm('_lang{The tool could not process this input directly, please access the website to re-enter this input to process again}'))window.open('https://[=PSZ_APP_SITE_DOMAIN=]/[=TOOL_SLUG=].html?lang=[=CURRENT_LANGUAGE_CODE=]');void(0);exit}window.open('https://[=PSZ_APP_SITE_DOMAIN=]/[=TOOL_SLUG=].html?lang=[=CURRENT_LANGUAGE_CODE=]&utm_source=shortcut&input='+p);void(0);" 
 						class="btn btn-flex btn-color-white text-hover-danger bg-transparent btn-outline fw-semibold px-6 me-3" 
 						title="_lang{Encode}" 
 						style="background-image:url('[=PSZ_FRONTPAGE_PATH=]/assets/media/svg/shapes/wave-bg-red.svg')">
@@ -291,7 +291,7 @@
 					    </span>
 					</a>
 					
-					<a href="javascript:var text=''+(window.getSelection?window.getSelection():(document.getSelection?document.getSelection():document.selection.createRange().text));var p=!text||text==''?prompt('_lang{Please enter the decoded text to convert into normal string}'):text;if(p.length>1950){if(true==confirm('_lang{The tool could not process this input directly, please access the website to re-enter this input to process again}'))window.open('https://[=PSZ_APP_SITE_DOMAIN=]/[=TOOL_SLUG=].html?lang=[=CURRENT_LANGUAGE_CODE=]');void(0);exit}window.open('https://[=PSZ_APP_SITE_DOMAIN=]/[=TOOL_SLUG=].html?lang=[=CURRENT_LANGUAGE_CODE=]&utm_source=shortcut&code='+p);void(0);exit;" 
+					<a href="javascript:var text=''+(window.getSelection?window.getSelection():(document.getSelection?document.getSelection():document.selection.createRange().text));text=text.trim();var p=!text||text==''?prompt('_lang{Please enter the decoded text to convert into normal string}'):text;if(p.length>1950){if(true==confirm('_lang{The tool could not process this input directly, please access the website to re-enter this input to process again}'))window.open('https://[=PSZ_APP_SITE_DOMAIN=]/[=TOOL_SLUG=].html?lang=[=CURRENT_LANGUAGE_CODE=]');void(0);exit}window.open('https://[=PSZ_APP_SITE_DOMAIN=]/[=TOOL_SLUG=].html?lang=[=CURRENT_LANGUAGE_CODE=]&utm_source=shortcut&code='+p);void(0);exit;" 
 						class="btn btn-flex btn-color-white text-hover-info bg-transparent btn-outline fw-semibold px-6 me-3" 
 						title="_lang{Decode}" 
 						style="background-image:url('[=PSZ_FRONTPAGE_PATH=]/assets/media/svg/shapes/wave-bg-purple.svg')">
@@ -310,10 +310,10 @@
 							<div class="menu-content text-muted pb-2 px-3 fs-7">_lang{View} _lang{Source Code}</div>
 						</div>
 						<div class="menu-item px-3 my-1">
-							<a href="//github.com/PREScriptZ/tooly.win/blob/main/tools/text-hex-converter/shortcut-encode.js" class="menu-link px-3 text-inverse-light" target="_blank">_lang{Encode} _lang{text}➪HEX</a>
+							<a href="//github.com/toolywin/tools/blob/main/text-hex-converter/shortcut-decode.js" class="menu-link px-3 text-inverse-light" target="_blank">_lang{Encode} _lang{text}➪HEX</a>
 						</div>
 						<div class="menu-item px-3 my-1">
-							<a href="//github.com/PREScriptZ/tooly.win/blob/main/tools/text-hex-converter/shortcut-decode.js" class="menu-link px-3 text-inverse-light" target="_blank">_lang{Decode} HEX➪_lang{text}</a>
+							<a href="//github.com/toolywin/tools/blob/main/text-hex-converter/shortcut-encode.js" class="menu-link px-3 text-inverse-light" target="_blank">_lang{Decode} HEX➪_lang{text}</a>
 						</div>
 					</div>
 				</div>
@@ -351,7 +351,7 @@
 								<div class="d-flex flex-wrap fw-semibold fs-6 mb-4 pe-2">
 									<!-- BEGIN_LOOP source -->
 									<a href="[=source.URL=]" target="_blank" rel="nofollow" class="d-flex align-items-center text-gray-400 text-hover-warning me-5 mb-2">
-										<i class="fs-4 fa_class_switcher me-1 [=FA_CLASS=]-[=source.ICON=]"></i> 
+										<i class="fs-4 -fa_class_switcher me-1 fa-brands fa-[=source.ICON=]"></i> 
 										[=source.NAME=]
 									</a>
 									<!-- END_LOOP source -->
@@ -533,7 +533,7 @@
 										<!--begin::Content-->
 										<div class="fw-semibold">
 											<h4 class="text-gray-900 fw-bold">_lang{Example}</h4>
-											<div class="fs-7 text-gray-700"><a href="https://[=PSZ_APP_SITE_DOMAIN=]/[=TOOL_SLUG=].html?code=https://raw.githubusercontent.com/PREScriptZ/gomymobiBSB/master/README.md" target="_blank">https://[=PSZ_APP_SITE_DOMAIN=]/[=TOOL_SLUG=].html?<span class="text-success">input</span>=<span class="text-warning">https://raw.githubusercontent.com/PREScriptZ/gomymobiBSB/master/README.md</span></a></div>
+											<div class="fs-7 text-gray-700"><a href="https://[=PSZ_APP_SITE_DOMAIN=]/[=TOOL_SLUG=].html?code=https://github.com/PREScriptZ/tooly.win/raw/main/README.md&content=fetch" target="_blank">https://[=PSZ_APP_SITE_DOMAIN=]/[=TOOL_SLUG=].html?<span class="text-success">input</span>=<span class="text-warning">https://github.com/PREScriptZ/tooly.win/raw/main/README.md</span>&<span class="text-success">content</span>=<span class="text-warning">fetch</span></a></div>
 										</div>
 										<!--end::Content-->
 									</div>
@@ -579,7 +579,7 @@
 										<!--begin::Content-->
 										<div class="fw-semibold">
 											<h4 class="text-gray-900 fw-bold">_lang{Example}</h4>
-											<div class="fs-7 text-gray-700"><a href="https://[=PSZ_APP_SITE_DOMAIN=]/[=TOOL_SLUG=].html?code=https://raw.githubusercontent.com/PREScriptZ/gomymobiBSB/master/README.HEX" target="_blank">https://[=PSZ_APP_SITE_DOMAIN=]/[=TOOL_SLUG=].html?<span class="text-warning">code</span>=<span class="text-warning">https://raw.githubusercontent.com/PREScriptZ/gomymobiBSB/master/README.HEX</span></a></div>
+											<div class="fs-7 text-gray-700"><a href="https://[=PSZ_APP_SITE_DOMAIN=]/[=TOOL_SLUG=].html?code=https://github.com/PREScriptZ/tooly.win/raw/main/tools/text-hex-converter/README.HEX.md" target="_blank">https://[=PSZ_APP_SITE_DOMAIN=]/[=TOOL_SLUG=].html?<span class="text-warning">code</span>=<span class="text-warning">https://github.com/PREScriptZ/tooly.win/raw/main/tools/text-hex-converter/README.HEX.md</span></a></div>
 										</div>
 										<!--end::Content-->
 									</div>
